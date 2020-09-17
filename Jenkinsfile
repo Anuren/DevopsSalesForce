@@ -43,7 +43,7 @@ node {
 
 	}else{                                                                       
          rr = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:logout --username ${HUB_ORG}"  
-		 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
+		 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
 		 rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:source:deploy -x manifest/package.xml -u ${HUB_ORG}  --wait 20"
 
 	}        
