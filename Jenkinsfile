@@ -6,7 +6,7 @@ node {
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
 
-    def HUB_ORG= test-xsp28kqlnm0v@example.com
+    def HUB_ORG= test-xsp28kqlnm0v
     def SFDC_HOST = env.SFDC_HOST_DH
     def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
     def CONNECTED_APP_CONSUMER_KEY=3MVG9z6NAroNkeMkqBqT_Ng0I3RRMAQ0y7dB.CWblVCDDZevEvbPq4tuf3M0D9laUmvT5WLXSl1_R2mBgs3fs
