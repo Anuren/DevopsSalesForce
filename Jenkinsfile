@@ -6,10 +6,10 @@ node {
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
 
-    def HUB_ORG=env.HUB_ORG_DH
+    def HUB_ORG= test-xsp28kqlnm0v@example.com
     def SFDC_HOST = env.SFDC_HOST_DH
     def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
-    def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
+    def CONNECTED_APP_CONSUMER_KEY=3MVG9z6NAroNkeMkqBqT_Ng0I3RRMAQ0y7dB.CWblVCDDZevEvbPq4tuf3M0D9laUmvT5WLXSl1_R2mBgs3fs
 
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
@@ -23,7 +23,7 @@ node {
         checkout scm
     }
 
-    withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key')]) {
+    withCredentials([file(credentialsId: JWT_KEY_CRED_ID)]) {
         stage('Deploye Code') {
             if (isUnix()) {
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
